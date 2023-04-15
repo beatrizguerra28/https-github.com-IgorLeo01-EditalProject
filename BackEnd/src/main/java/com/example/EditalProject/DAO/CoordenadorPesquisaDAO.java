@@ -2,11 +2,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class CoordenadorExtensaoDAO {
-    public void insere(CoordenadorExtensao coordenador) {
+public class CoordenadorPesquisaDAO {
+    public void insere(CoordenadorPesquisa coordenador) {
         try (Connection conexao = ConnectionFactory.getConnection()) {
             // Inserir os dados em uma tabela
-            PreparedStatement stmt = conexao.prepareStatement("INSERT INTO tabela_coordenador_extensao (titulo, descricao, prazo, criterios_selecao, requisitos) VALUES (?, ?, ?, ?, ?)");
+            PreparedStatement stmt = conexao.prepareStatement("INSERT INTO tabela_coordenador_pesquisa (titulo, descricao, prazo, criterios_selecao, requisitos) VALUES (?, ?, ?, ?, ?)");
             stmt.setString(1, coordenador.getTitulo());
             stmt.setString(2, coordenador.getDescricao());
             stmt.setDate(3, java.sql.Date.valueOf(coordenador.getPrazo()));
